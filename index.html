@@ -35,23 +35,23 @@
 
 				<strong>Aspect ratio / padding top trick</strong>
 				<br>
-<pre><code>
-.holder {
-	width: 100%;
-	padding-top: 100%/16*9;
-	margin: 0;
-	position: relative;
-	overflow: hidden;
+				<pre><code>
+				.holder {
+					width: 100%;
+					padding-top: 100%/16*9;
+					margin: 0;
+					position: relative;
+					overflow: hidden;
 
-	.div {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-	}
-}
-</code></pre>
+					.div {
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+					}
+				}
+				</code></pre>
 				<br><br>
 
 
@@ -61,53 +61,80 @@
 				<h2><a id="js" class="anchor" href="#js" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>JS/JQuery</h2>
 
 				<strong>Set equal height</strong>
-<pre><code>
-	var maxheight = 0,
-	col = $('.element');
-	col.each(function(){
-	    if($(this).removeAttr('style').height() > maxheight) {
-	        maxheight = $(this).height();
-	    }
-	});
-	col.height(maxheight);
-</code></pre>
+				<pre><code>
+					var maxheight = 0,
+					col = $('.element');
+					col.each(function(){
+					    if($(this).removeAttr('style').height() > maxheight) {
+					        maxheight = $(this).height();
+					    }
+					});
+					col.height(maxheight);
+				</code></pre>
 				<br>
 				<br>
+
+				<strong>Minimal if statement</strong>
+				<pre><code>
+					var test = true;
+ 					test ? console.log('yup') : console.log('nope’);
+				</code></pre>
+				<br>
+				<br>
+
+				<strong>Simple function + proper load on element</strong>
+				<pre><code>
+					function setVideoboxHeight(){
+	        
+				            var container_height1 = $('.js-parent-height-1').outerHeight();
+				            var c = $('.js-set-height-1');
+				            $(c.height( container_height1 - 42 ) );
+				
+				            var container_height2 = $('.js-parent-height-2').outerHeight();
+				            var c2 = $('.js-set-height-2');
+				            $(c2.height( container_height2 - 42 ) );
+			        };
+			        
+			        if (windowWidth > 990) $( "#video-thumb" ).on("load", setVideoboxHeight;
+				</code></pre>
+				<br>
+				<br>
+
 
 				<h2><a id="wordpress" class="anchor" href="#wordpress" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>WordPress</h2>
 
 				<strong>Remove default images width attribute</strong>
-<pre><code>
-	add_filter( 'post_thumbnail_html', 'remove_width_attribute', 10 );
-	add_filter( 'image_send_to_editor', 'remove_width_attribute', 10 );
+				<pre><code>
+					add_filter( 'post_thumbnail_html', 'remove_width_attribute', 10 );
+					add_filter( 'image_send_to_editor', 'remove_width_attribute', 10 );
 
-	function remove_width_attribute( $html ) {
-	   $html = preg_replace( '/(width|height)="\d*"\s/', "", $html );
-	   return $html;
-	}
-</code></pre>
+					function remove_width_attribute( $html ) {
+					   $html = preg_replace( '/(width|height)="\d*"\s/', "", $html );
+					   return $html;
+					}
+				</code></pre>
 				<br><br>
 
 				<strong>No more empty search results</strong>
-<pre><code>
-	function SearchFilter($query) {
-	   if (isset($_GET['s']) && empty($_GET['s']) && $query->is_main_query()){
-	      $query->is_search = true;
-	      $query->is_home = false;
-	   }
-	   return $query;
-	}
-	add_filter('pre_get_posts','SearchFilter');
-</code></pre>
+				<pre><code>
+					function SearchFilter($query) {
+					   if (isset($_GET['s']) && empty($_GET['s']) && $query->is_main_query()){
+					      $query->is_search = true;
+					      $query->is_home = false;
+					   }
+					   return $query;
+					}
+					add_filter('pre_get_posts','SearchFilter');
+				</code></pre>
 				<br><br>
 
 				<strong>Get the URL of a featured image</strong>
 				<br>
-<pre><code>
-$thumb_id = get_post_thumbnail_id();
-$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
-$thumb_url = $thumb_url_array[0];
-</code></pre>
+				<pre><code>
+					$thumb_id = get_post_thumbnail_id();
+					$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
+					$thumb_url = $thumb_url_array[0];
+				</code></pre>
 				<br>
 				<small>Source: <a href="https://css-tricks.com/snippets/wordpress/get-featured-image-url/" target="_blank">CSS Tricks</a>
 				</small>
@@ -116,13 +143,13 @@ $thumb_url = $thumb_url_array[0];
 
 				<strong>Approve SVG upload Media Library</strong>
 				<br>
-<pre><code>
-	function cc_mime_types($mimes) {
-	  $mimes['svg'] = 'image/svg+xml';
-	  return $mimes;
-	}
-	add_filter('upload_mimes', 'cc_mime_types');
-</code></pre>
+				<pre><code>
+					function cc_mime_types($mimes) {
+					  $mimes['svg'] = 'image/svg+xml';
+					  return $mimes;
+					}
+					add_filter('upload_mimes', 'cc_mime_types');
+				</code></pre>
 				<br><br>
 
 
