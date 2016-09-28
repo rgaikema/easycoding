@@ -1,138 +1,41 @@
 <!doctype html>
-	<html>
-		<head>
-			<meta charset="utf-8">
-			<meta http-equiv="X-UA-Compatible" content="chrome=1">
-			<title>Happycoding by rgaikema</title>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Easycoding by rgaikema</title>
 
-			<link rel="stylesheet" href="stylesheets/styles.css">
-			<link rel="stylesheet" href="stylesheets/github-light.css">
-			<meta name="viewport" content="width=device-width">
-			<!--[if lt IE 9]>
-			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-			<![endif]-->
-		</head>
-		<body>
-			<div class="wrapper">
-			<header>
-				<h1>Easycoding</h1>
-				<p>Some practical front end snippets</p>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Easycoding</h1>
+        <p>Tips &amp; Tricks for my personal frontend work</p>
 
-				<!-- <p class="view"><a href="https://github.com/rgaikema/happycoding">View the Project on GitHub <small>rgaikema/happycoding</small></a></p> -->
-
-				<ul>
-				<li><a href="https://github.com/rgaikema/happycoding/zipball/master">Download <strong>ZIP File</strong></a></li>
-				<li><a href="https://github.com/rgaikema/happycoding/tarball/master">Download <strong>TAR Ball</strong></a></li>
-				<li><a href="https://github.com/rgaikema/happycoding">View On <strong>GitHub</strong></a></li>
-				</ul>
-			</header>
-			<section>
-				<h2><a id="snippets" class="anchor" href="#snippets" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Frontend snippets</h2>
-
-				<p>Some code examples I often use.</p>
-
-				<h2><a id="cssless" class="anchor" href="#cssless" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CSS/Less</h2>
-
-				<strong>Aspect ratio / padding top trick</strong>
-				<br>
-<pre><code>
-.holder {
-	width: 100%;
-	padding-top: 100%/16*9;
-	margin: 0;
-	position: relative;
-	overflow: hidden;
-
-	.div {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-	}
-}
-</code></pre>
-				<br><br>
+        <p class="view"><a href="https://github.com/rgaikema/easycoding">View the Project on GitHub <small>rgaikema/easycoding</small></a></p>
 
 
-				<h2><a id="php" class="anchor" href="#php" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>PHP</h2>
-
-
-				<h2><a id="js" class="anchor" href="#js" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>JS/JQuery</h2>
-
-				<strong>Set equal height</strong>
-<pre><code>
-	var maxheight = 0,
-	col = $('.element');
-	col.each(function(){
-	    if($(this).removeAttr('style').height() > maxheight) {
-	        maxheight = $(this).height();
-	    }
-	});
-	col.height(maxheight);
-</code></pre>
-				<br>
-				<br>
-
-				<h2><a id="wordpress" class="anchor" href="#wordpress" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>WordPress</h2>
-
-				<strong>Remove default images width attribute</strong>
-<pre><code>
-	add_filter( 'post_thumbnail_html', 'remove_width_attribute', 10 );
-	add_filter( 'image_send_to_editor', 'remove_width_attribute', 10 );
-
-	function remove_width_attribute( $html ) {
-	   $html = preg_replace( '/(width|height)="\d*"\s/', "", $html );
-	   return $html;
-	}
-</code></pre>
-				<br><br>
-
-				<strong>No more empty search results</strong>
-<pre><code>
-	function SearchFilter($query) {
-	   if (isset($_GET['s']) && empty($_GET['s']) && $query->is_main_query()){
-	      $query->is_search = true;
-	      $query->is_home = false;
-	   }
-	   return $query;
-	}
-	add_filter('pre_get_posts','SearchFilter');
-</code></pre>
-				<br><br>
-
-				<strong>Get the URL of a featured image</strong>
-				<br>
-<pre><code>
-$thumb_id = get_post_thumbnail_id();
-$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
-$thumb_url = $thumb_url_array[0];
-</code></pre>
-				<br>
-				<small>Source: <a href="https://css-tricks.com/snippets/wordpress/get-featured-image-url/" target="_blank">CSS Tricks</a>
-				</small>
-				<br><br>
-
-
-				<strong>Approve SVG upload Media Library</strong>
-				<br>
-<pre><code>
-	function cc_mime_types($mimes) {
-	  $mimes['svg'] = 'image/svg+xml';
-	  return $mimes;
-	}
-	add_filter('upload_mimes', 'cc_mime_types');
-</code></pre>
-				<br><br>
-
-
-	  		</section>
-
-	  		<footer>
-				<p>This project is maintained by <a href="https://github.com/rgaikema">rgaikema</a></p>
-				<p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-			</footer>
-		</div>
-		<script src="javascripts/scale.fix.js"></script>
-	</body>
+        <ul>
+          <li><a href="https://github.com/rgaikema/easycoding/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/rgaikema/easycoding/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/rgaikema/easycoding">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <p>This is just the first line to test.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/rgaikema">rgaikema</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
 </html>
