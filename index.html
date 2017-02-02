@@ -53,6 +53,18 @@
 }
 				</code></pre>
 				<br><br>
+				<strong>Remove blurry images during scaling (transform)</strong>
+				<br>
+				<pre><code>
+.image {
+	image-rendering: -moz-crisp-edges;         /* Firefox */
+	image-rendering:   -o-crisp-edges;         /* Opera */
+	image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
+	image-rendering: crisp-edges;
+	-ms-interpolation-mode: nearest-neighbor;  /* IE (non-standard property) */
+}
+				</code></pre>
+				<br><br>
 
 
 				<h2><a id="php" class="anchor" href="#php" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>PHP</h2>
