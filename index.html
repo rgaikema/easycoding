@@ -33,6 +33,40 @@
 
 				<h2><a id="cssless" class="anchor" href="#cssless" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CSS/Less</h2>
 
+				<strong>Style radio buttons</strong>
+				<br>
+				<pre><code>
+input[type="radio"] {
+	display: none;
+}
+input[type="radio"]+ label {
+	cursor: pointer;
+	display: inline-block;
+	width: 60px;
+	height: 60px;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	background: #fff;
+	border-radius: 0%;
+	border: 0;
+	appearance:none;
+	-moz-appearance:none;
+	-webkit-appearance:none;
+}
+
+input[type="radio"]+ label:hover {
+	background: maroon;
+}
+
+input[type="radio"]:checked + label {
+	background: green;
+	position: relative;
+}
+
+				</code></pre>
+				<br><br>
+
 				<strong>Aspect ratio / padding top trick</strong>
 				<br>
 				<pre><code>
