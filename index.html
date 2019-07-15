@@ -199,7 +199,28 @@ add_filter('upload_mimes', 'cc_mime_types');
 				</code></pre>
 				<br><br>
 
+                <h2><a id="git" class="anchor" href="#git" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Git</h2>
 
+                <br><br>
+
+
+                <strong>Exclude files in gitignore after already committed</strong>
+                <br>
+                <p>First commit everything. After that:</p>
+                <pre><code>
+git rm -r --cached .
+				</code></pre>
+                <br><br>
+                <p>Re add everything:</p>
+                <pre><code>
+git add .
+				</code></pre>
+                <br><br>
+                <p>Commit again:</p>
+                <pre><code>
+git commit -m ".gitignore fix"
+				</code></pre>
+                <br><br>
 	  		</section>
 
 	  		<footer>
